@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abishek Resume</title>
+   
+
+    <!-- jQuery for skills animations -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  background: linear-gradient(135deg, #2d1f4e, #5a3fc0);
+  min-height: 100vh;
+  padding: 40px;
+  display: flex;
+  justify-content: center;
+  animation: fadeIn 1.2s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.resume {
+  width: 900px;
+  background: #fff;
+  display: flex;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.35);
+  transition: 0.3s;
+}
+
+.resume:hover {
+  transform: scale(1.01);
+}
+
+.base {
+  width: 32%;
+  background: linear-gradient(180deg, #2d1f4e, #3d2a6a, #5a3fc0);
+  color: #fff;
+  padding: 30px;
+  text-align: center;
+}
+
+.profile .photo {
+  width: 130px;
+  height: 130px;
+  background: rgba(255, 255, 255, 0.15);
+  margin: auto;
+  border-radius: 50%;
+  border: 3px solid #d5c0ff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 48px;
+  margin-bottom: 15px;
+  transition: 0.4s;
+}
+
+.profile .photo:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 18px rgba(255, 255, 255, 0.5);
+}
+
+.profile .name {
+  font-size: 23px;
+  font-weight: 700;
+}
+
+.profile .job {
+  color: #e2d6ff;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.base h3 {
+  margin-top: 25px;
+  margin-bottom: 10px;
+  font-size: 15px;
+  letter-spacing: 1px;
+  color: #e8dfff;
+  text-transform: uppercase;
+}
+
+.about {
+  text-align: justify;
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+.contact div {
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 14px;
+}
+
+.contact i {
+  color: #dfd1ff;
+}
+
+.follow .box a {
+  color: #e8dfff;
+  margin: 5px;
+  font-size: 22px;
+  transition: 0.3s;
+}
+
+.follow .box a:hover {
+  transform: scale(1.12);
+  text-shadow: 0 0 10px #fff;
+}
+
+.func {
+  width: 68%;
+  padding: 35px 45px;
+}
+
+.func h3 {
+  font-size: 22px;
+  margin-bottom: 10px;
+  color: #2d1f4e;
+}
+
+.func ul li {
+  margin-bottom: 18px;
+  padding-left: 12px;
+  border-left: 3px solid #5a3fc0;
+}
+
+.func span {
+  font-weight: 600;
+  color: #4b3a72;
+}
+
+.skills-prog ul li {
+  margin-bottom: 20px;
+}
+
+.skills-bar {
+  height: 8px;
+  background: #eee;
+  border-radius: 5px;
+  overflow: hidden;
+  margin-top: 6px;
+}
+
+.skills-bar .bar {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #7A42FF, #5a3fc0);
+  box-shadow: 0 0 10px rgba(122,66,255,0.6);
+}
+
+.skills-soft ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.skills-soft li {
+  width: 48%;
+  text-align: center;
+  margin-bottom: 25px;
+  position: relative;
+}
+
+.soft-wrapper { position: relative; width: 100px; margin: auto; }
+
+.soft-icon {
+  width: 36px;
+  height: 36px;
+  position: absolute;
+  top: 32px;
+  left: 32px;
+  z-index: 2;
+}
+
+.skills-soft svg {
+  width: 100px;
+  height: 100px;
+}
+
+.skills-soft circle {
+  fill: none;
+  stroke-width: 8;
+  stroke: #e4e4e4;
+}
+
+.skills-soft .cbar {
+  stroke: #7A42FF;
+  stroke-linecap: round;
+  filter: drop-shadow(0 0 2px #7A42FF);
+}
+
+.interests-items {
+  display: flex;
+  flex-direction: column;
+}
+
+.interests-items div {
+  background: #f4f2ff;
+  padding: 8px 12px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  transition: 0.3s;
+}
+
+.interests-items div:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 12px rgba(90, 63, 192, 0.35);
+}
+
+.interests-items a {
+  text-decoration: none;
+  color: #5a3fc0;
+  font-weight: 600;
+}
+
+@media (max-width: 900px) {
+  .resume { flex-direction: column; width: 100%; }
+  .base, .func { width: 100%; }
+}
+
+.about-points li {
+  margin-bottom: 6px;
+}
+
+
+    </style>
+</head>
+
+<body>
+<div class="resume">
+
+  <!-- LEFT PANEL -->
+  <div class="base">
+    <div class="profile">
+      <div class="photo"><i class="fas fa-user"></i></div>
+      <div class="info">
+        <h1 class="name">ABISHEK B</h1>
+        <h2 class="job">B.Tech Information Technology</h2>
+      </div>
+    </div>
+
+   <div class="about">
+  <h3>About Me</h3>
+  <ul class="about-points">
+    <li>Second-year B.Tech IT student passionate about software development.</li>
+    <li>Good knowledge in Java, C++, Python, HTML, CSS, JavaScript, and React.</li>
+    <li>Strong understanding of Data Structures and Algorithms.</li>
+    <li>Completed internship projects at CodSoft using Java and OOP concepts.</li>
+    <li>Quick learner who enjoys building practical and useful applications.</li>
+    
+  </ul>
+</div>
+
+
+    <div class="contact">
+      <h3>Contact Me</h3>
+      <div><i class="fas fa-phone"></i><span>9025840034</span></div>
+      <div><i class="fas fa-envelope"></i><span>abishekbalacbe@gmail.com</span></div>
+      <div><i class="fab fa-github"></i><span>github.com/Abishek-1212</span></div>
+      <div><i class="fab fa-linkedin"></i><span>linkedin.com/in/abishek-b-7241a9330</span></div>
+    </div>
+
+    <div class="follow">
+      <h3>Follow Me</h3>
+      <div class="box">
+        <a href="https://www.instagram.com/_abishek._.12/" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://github.com/Abishek-1212" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/abishek-b-7241a9330/" target="_blank"><i class="fab fa-linkedin"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <!-- RIGHT PANEL -->
+  <div class="func">
+
+    <div class="work">
+      <h3><i class="fa fa-briefcase"></i>Experience</h3>
+      <ul>
+        <li>
+          <span>Java Programming Intern</span>
+          <small>CodSoft</small>
+          <small>June 2025 - July 2025</small>
+          <small>Completed 4 Java-based tasks including OOP, file handling, and console apps.</small>
+        </li>
+      </ul>
+    </div>
+
+    <div class="edu">
+      <h3><i class="fa fa-graduation-cap"></i>Education</h3>
+      <ul>
+        <li>
+          <span>B.Tech Information Technology</span>
+          <small>Sri Krishna College of Technology</small>
+          <small>2024 - 2028</small>
+          <small>CGPA: 8.02</small>
+        </li>
+        <li>
+          <span>12th Standard</span>
+          <small>GKDMHSS</small>
+          <small>91%</small>
+        </li>
+      </ul>
+    </div>
+
+    <div class="skills-prog">
+      <h3><i class="fas fa-code"></i>Programming Skills</h3>
+      <ul>
+        <li data-percent="80"><span>Java</span><div class="skills-bar"><div class="bar"></div></div></li>
+        <li data-percent="95"><span>C++</span><div class="skills-bar"><div class="bar"></div></div></li>
+        <li data-percent="75"><span>Python</span><div class="skills-bar"><div class="bar"></div></div></li>
+        <li data-percent="85"><span>HTML / CSS</span><div class="skills-bar"><div class="bar"></div></div></li>
+        <li data-percent="60"><span>JavaScript</span><div class="skills-bar"><div class="bar"></div></div></li>
+        <li data-percent="50"><span>React</span><div class="skills-bar"><div class="bar"></div></div></li>
+      </ul>
+    </div>
+
+    <div class="skills-soft">
+      <h3><i class="fas fa-lightbulb"></i>Soft Skills</h3>
+      <ul>
+        <li data-percent="90">
+          <div class="soft-wrapper">
+            <img src="https://cdn-icons-png.flaticon.com/512/2563/2563331.png" class="soft-icon">
+            <svg viewBox="0 0 100 100">
+              <circle cx="50" cy="50" r="45"></circle>
+              <circle class="cbar" cx="50" cy="50" r="45"></circle>
+            </svg>
+          </div>
+          <span>Problem Solving</span>
+        </li>
+
+        <li data-percent="80">
+          <div class="soft-wrapper">
+            <img src="https://cdn-icons-png.flaticon.com/512/2541/2541988.png" class="soft-icon">
+            <svg viewBox="0 0 100 100">
+              <circle cx="50" cy="50" r="45"></circle>
+              <circle class="cbar" cx="50" cy="50" r="45"></circle>
+            </svg>
+          </div>
+          <span>Communication</span>
+        </li>
+
+        <li data-percent="85">
+          <div class="soft-wrapper">
+            <img src="https://cdn-icons-png.flaticon.com/512/2165/2165065.png" class="soft-icon">
+            <svg viewBox="0 0 100 100">
+              <circle cx="50" cy="50" r="45"></circle>
+              <circle class="cbar" cx="50" cy="50" r="45"></circle>
+            </svg>
+          </div>
+          <span>Teamwork</span>
+        </li>
+
+        <li data-percent="75">
+          <div class="soft-wrapper">
+            <img src="https://cdn-icons-png.flaticon.com/512/2921/2921222.png" class="soft-icon">
+            <svg viewBox="0 0 100 100">
+              <circle cx="50" cy="50" r="45"></circle>
+              <circle class="cbar" cx="50" cy="50" r="45"></circle>
+            </svg>
+          </div>
+          <span>Time Management</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="interests">
+      <h3><i class="fas fa-certificate"></i>Certifications</h3>
+      <div class="interests-items">
+        <div><i class="fas fa-link"></i><a href="https://www.coursera.org/account/accomplishments/verify/H0UKTIIR4XU7" target="_blank">Google Crash Course on AI</a></div>
+        <div><i class="fas fa-link"></i><a href="https://www.linkedin.com/in/abishek-b-7241a9330/recent-activity/all/" target="_blank">Java Course Certificates</a></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+// Skill Bar Animation
+$(document).ready(function() {
+  $(".skills-prog li").each(function() {
+    let percent = $(this).attr("data-percent");
+    $(this).find(".bar").animate({ width: percent + "%" }, 1200);
+  });
+});
+
+// Soft Skills Circle Animation
+$(".skills-soft li").each(function(i) {
+    let circle = $(this).find(".cbar");
+    let r = circle.attr("r");
+    let c = Math.PI * (r * 2);
+    let percent = $(this).attr("data-percent");
+    let offset = ((100 - percent) / 100) * c;
+
+    circle.css({
+        strokeDasharray: c,
+        strokeDashoffset: c
+    });
+
+    circle.delay(i * 200).animate(
+        { strokeDashoffset: offset },
+        1000
+    );
+});
+</script>
+</body>
+</html>
